@@ -1,0 +1,31 @@
+ /* en frontend/src/components/Footer.module.css */
+    .footer {
+      background-color: #f7fafc;
+      color: #4a5568;
+      padding: 20px 30px;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 40px;
+    }
+
+    /* Renombramos a camelCase para que coincida con el JS */
+    .footerContainer {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footerLinks {
+      margin-top: 10px;
+    }
+    
+    /* Este selector sigue funcionando igual porque apunta a las etiquetas 'a' dentro de .footerLinks */
+    .footerLinks a {
+      color: #4a5568;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .footerLinks a:hover {
+      color: #f7b731;
+    }

@@ -1,0 +1,47 @@
+/* --- Configuración de Fuente y Fondo --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
+
+body {
+  background-color: #ffffff;
+  color: #1a202c;
+  font-family: 'Montserrat', sans-serif; 
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Contenedor Principal y Layout --- */
+.main-content {
+  /* Empuja el footer hacia abajo en páginas con poco contenido */
+  min-height: 75vh; 
+}
+
+/* Contenedor general para centrar el contenido de las páginas */
+.App-container {
+  max-width: 1200px; /* Ancho máximo para el contenido principal */
+  margin: 40px auto;
+  padding: 0 20px; /* Padding lateral para que no se pegue a los bordes */
+}
+
+/* --- Estilos para Páginas Específicas (Legales, etc.) --- */
+.legal-page h2 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: #1a202c;
+}
+
+.legal-page p {
+  line-height: 1.7;
+  margin-bottom: 1em;
+}
+
+/* ============================================= */
+/* === ESTILOS RESPONSIVE GLOBALES === */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .App-container {
+    margin: 20px auto;
+    padding: 0 15px; /* Menos padding lateral en móviles */
+  }
+}

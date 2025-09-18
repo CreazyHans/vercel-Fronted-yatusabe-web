@@ -1,0 +1,158 @@
+.navbar {
+  background-color: #ffffff;
+  padding: 15px 30px; 
+  border-bottom: 2px solid #f7b731;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1320px; 
+  margin: 0 auto;
+  position: relative;
+}
+
+/* --- Logo --- */
+.navbarLogo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #1a202c;
+  font-weight: bold;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.logoText {
+  white-space: nowrap;
+  margin-left: 15px;
+}
+
+.navbarLogo img {
+  height: 55px; 
+}
+
+/* --- Menú y Sociales (Escritorio) --- */
+.navbarMenuDesktop {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.socialIconsDesktop {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 20px; /* Espacio entre menú y sociales */
+}
+
+.socialIconsDesktop a {
+  color: #1a202c;
+  font-size: 22px;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.socialIconsDesktop a:hover {
+  color: #f7b731;
+  transform: scale(1.1);
+}
+
+.navbarLink {
+  color: #4a5668;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.navbarLink:hover {
+  color: #f7b731;
+}
+
+
+/* --- Elementos Móviles (Ocultos en Escritorio) --- */
+.navbarHamburger {
+  display: none;
+}
+
+.navbarMenuMobile {
+  display: none;
+}
+
+
+/* =============================== */
+/* === MEDIA QUERY RESPONSIVE === */
+/* =============================== */
+
+@media (max-width: 992px) {
+  /* Ocultamos los elementos de escritorio */
+  .navbarMenuDesktop,
+  .socialIconsDesktop {
+    display: none;
+  }
+
+  /* Mostramos la hamburguesa */
+  .navbarHamburger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 1001;
+  }
+  
+  /* Ocultamos el texto del logo */
+  .logoText {
+    display: none;
+  }
+
+  /* Preparamos el menú móvil */
+  .navbarMenuMobile {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    position: absolute;
+    top: 95px;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  /* Clase 'active' para mostrar el menú móvil */
+  .navbarMenuMobile.active {
+    max-height: 500px;
+  }
+
+  .navbarLinkMobile {
+    color: #1a202c;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .navbarLinkMobile:hover {
+    background-color: #f7fafc;
+  }
+
+  .socialIconsMobile {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 0;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .socialIconsMobile a {
+    color: #2b2c1aff;
+    font-size: 28px;
+  }
+}

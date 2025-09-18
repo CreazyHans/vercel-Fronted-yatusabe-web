@@ -1,0 +1,60 @@
+ /* en frontend/src/components/CreateNoticiaForm.css */
+    .create-form {
+      background-color: #f7fafc;
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    .create-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1a202c;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #4a5568;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd5e0;
+      border-radius: 4px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #0056b3; /* Azul de tu marca */
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .submit-btn:hover {
+      background-color: #004494;
+    }
+
+    .form-message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }

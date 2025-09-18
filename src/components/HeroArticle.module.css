@@ -1,0 +1,67 @@
+/* en frontend/src/components/HeroArticle.module.css */
+    .heroLink {
+      text-decoration: none;
+      color: inherit;
+      display: block; /* Asegura que el link ocupe todo el espacio */
+    }
+
+    .heroArticle {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 40px;
+      transition: transform 0.3s ease; /* Añadimos una transición suave */
+    }
+
+    .heroLink:hover .heroArticle {
+      transform: scale(1.02); /* Efecto de zoom sutil al pasar el mouse */
+    }
+
+    .heroOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0) 80%);
+    }
+
+    .heroContent {
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+      color: #ffffff;
+    }
+
+    .heroCategory {
+      background-color: #f7b731;
+      color: #1a202c;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .heroTitle {
+      font-size: 2.5em;
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      .heroTitle {
+        font-size: 2em;
+      }
+      .heroArticle {
+        height: 300px; /* Un poco más bajo en tablets y móviles */
+      }
+    }
