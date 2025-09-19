@@ -43,7 +43,8 @@ function CreateNoticiaForm() {
       };
       
       
-      const response = await axios.post('/api/noticias', nuevaNoticia, config);
+      // const response = await axios.post('/api/noticias', ...); // ANTES
+const response = await axios.post(`${API_BASE_URL}/api/noticias`); // DESPUÉS
       navigate(`/admin/editar-html/${response.data.slug}`);
 
     } catch (error) {

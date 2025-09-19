@@ -13,20 +13,28 @@ function HomePage() {
   const [noticias, setNoticias] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchNoticias = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get('/api/noticias');
-        setNoticias(response.data);
-      } catch (error) {
-        console.error("Hubo un error al obtener las noticias:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchNoticias();
-  }, []);
+  // frontend/src/pages/HomePage.js
+
+// ... (importaciones y API_BASE_URL definida) ...
+
+useEffect(() => {
+  const fetchNoticias = async () => {
+    setLoading(true);
+    try {
+      // <<< ¡CORRECCIÓN CLAVE AQUÍ!
+      const response = await axios.get(`${API_BASE_URL}/api/noticias`);
+      setNoticias(Array.isArray(response.data) ? response.data : []);
+    } catch (error) {
+      console.error("Hubo un error al obtener las noticias:", error);
+      setNoticias([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchNoticias();
+}, []);
+
+// ... (resto del código) ...
 
   const featuredArticle = noticias[0];
   const otherArticles = noticias.slice(1);

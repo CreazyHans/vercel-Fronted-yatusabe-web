@@ -10,7 +10,7 @@ function NoticiaAdminList() {
   const fetchNoticias = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get('/api/noticias');
+      const { data } = await axios.get(`${API_BASE_URL}/api/noticias`); // DESPUÉS
       setNoticias(data);
     } catch (error) {
       console.error("Error cargando noticias para el admin", error);
@@ -28,7 +28,7 @@ function NoticiaAdminList() {
       try {
         const token = localStorage.getItem('authToken');
         const config = { headers: { Authorization: `Bearer ${token}` } };
-        await axios.delete(`/api/noticias/${id}`, config);
+        await axios.delete(`${API_BASE_URL}/api/noticias/${id}`, config);
         fetchNoticias(); 
       } catch (error) {
         console.error('Error al eliminar', error);

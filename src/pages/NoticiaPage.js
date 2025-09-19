@@ -14,7 +14,8 @@ function NoticiaPage() {
     const fetchNoticia = async () => {
       setLoading(true); // Ponemos en modo carga
       try {
-        const response = await axios.get(`/api/noticias/${slug}`);
+        // const response = await axios.get(`/api/noticias/${slug}`); // ANTES
+const response = await axios.get(`${API_BASE_URL}/api/noticias/${slug}`); // DESPUÉS
         setNoticia(response.data); // Guardamos la noticia encontrada
       } catch (err) {
         setError('No se pudo cargar la noticia. Inténtalo de nuevo más tarde.');

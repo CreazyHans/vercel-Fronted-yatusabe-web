@@ -13,7 +13,8 @@ function CategoryPage() {
     const fetchNoticiasPorCategoria = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`/api/noticias/categoria/${categoryName}`);
+        // const response = await axios.get(`/api/noticias/categoria/${categoryName}`); // ANTES
+const response = await axios.get(`${API_BASE_URL}/api/noticias/categoria/${categoryName}`); // DESPUÉS
         setNoticias(response.data);
       } catch (error) {
         console.error(`Error obteniendo noticias para la categoría ${categoryName}:`, error);
