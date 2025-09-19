@@ -43,7 +43,7 @@ function CreateNoticiaForm() {
       };
       
       
-      const response = await axios.post('/api/noticias', nuevaNoticia, config);
+      const response = await axios.post('https://vercel-bakend-yatusabe-web.vercel.app/api/noticias', nuevaNoticia, config);
       navigate(`/admin/editar-html/${response.data.slug}`);
 
     } catch (error) {

@@ -17,7 +17,7 @@ function EditHtmlPage() {
     const fetchNoticia = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`/api/noticias/${slug}`);
+        const response = await axios.get(`https://vercel-bakend-yatusabe-web.vercel.app/api/noticias/${slug}`);
         setNoticia(response.data);
         setContenido(response.data.contenido || '');
       } catch (error) {
@@ -37,7 +37,7 @@ function EditHtmlPage() {
     try {
       const token = localStorage.getItem('authToken');
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      await axios.put(`/api/noticias/${noticia._id}`, { contenido }, config);
+      await axios.put(`https://vercel-bakend-yatusabe-web.vercel.app/api/noticias/${noticia._id}`, { contenido }, config);
       setMensaje("¡Formato guardado con éxito!");
       setTimeout(() => navigate(`/noticia/${slug}`), 2000);
     } catch (error) {

@@ -13,7 +13,7 @@
         e.preventDefault();
         try {
           const config = { headers: { 'Content-Type': 'application/json' } };
-          const { data } = await axios.post('/api/users/login',
+          const { data } = await axios.post('https://vercel-bakend-yatusabe-web.vercel.app/api/users/login',
             { email, password },
             config
           );
