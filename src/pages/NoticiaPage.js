@@ -14,7 +14,7 @@ function NoticiaPage() {
     const fetchNoticia = async () => {
       setLoading(true); // Ponemos en modo carga
       try {
-        const response = await axios.get(`https://vercel-bakend-yatusabe-web.vercel.app/api/noticias/${slug}`);
+        const response = await axios.get(`/api/noticias/${slug}`);
         setNoticia(response.data); // Guardamos la noticia encontrada
       } catch (err) {
         setError('No se pudo cargar la noticia. Inténtalo de nuevo más tarde.');

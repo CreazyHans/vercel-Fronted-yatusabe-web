@@ -13,7 +13,7 @@ function CategoryPage() {
     const fetchNoticiasPorCategoria = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`https://vercel-bakend-yatusabe-web.vercel.app/api/noticias/categoria/${categoryName}`);
+        const response = await axios.get(`/api/noticias/categoria/${categoryName}`);
         setNoticias(response.data);
       } catch (error) {
         console.error(`Error obteniendo noticias para la categoría ${categoryName}:`, error);

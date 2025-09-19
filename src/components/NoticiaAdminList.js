@@ -10,7 +10,7 @@ function NoticiaAdminList() {
   const fetchNoticias = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get('https://vercel-bakend-yatusabe-web.vercel.app/api/noticias');
+      const { data } = await axios.get('/api/noticias');
       setNoticias(data);
     } catch (error) {
       console.error("Error cargando noticias para el admin", error);
@@ -28,7 +28,7 @@ function NoticiaAdminList() {
       try {
         const token = localStorage.getItem('authToken');
         const config = { headers: { Authorization: `Bearer ${token}` } };
-        await axios.delete(`https://vercel-bakend-yatusabe-web.vercel.app/api/noticias/${id}`, config);
+        await axios.delete(`/api/noticias/${id}`, config);
         fetchNoticias(); 
       } catch (error) {
         console.error('Error al eliminar', error);
