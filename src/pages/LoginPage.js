@@ -13,10 +13,7 @@
         e.preventDefault();
         try {
           const config = { headers: { 'Content-Type': 'application/json' } };
-          const { data } = await axios.post('/api/users/login',
-            { email, password },
-            config
-          );
+          const { data } = await axios.post(`${API_BASE_URL}/api/users/login`);
           localStorage.setItem('authToken', data.token); // Guardamos el token
           navigate('/admin'); // Redirigimos al admin
         } catch (err) {
