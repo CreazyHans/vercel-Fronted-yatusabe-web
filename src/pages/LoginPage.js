@@ -3,6 +3,9 @@
     import axios from 'axios';
     // Crea un LoginPage.module.css para los estilos si quieres
 
+    const API_BASE_URL = 'https://vercel-bakend-yatusabe-web.vercel.app';
+
+
     function LoginPage() {
       const [email, setEmail] = useState('');
       const [password, setPassword] = useState('');

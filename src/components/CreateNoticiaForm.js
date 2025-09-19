@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './CreateNoticiaForm.css';
 
+const API_BASE_URL = 'https://vercel-bakend-yatusabe-web.vercel.app';
+
+
 function CreateNoticiaForm() {
   const navigate = useNavigate();
   const [titulo, setTitulo] = useState('');

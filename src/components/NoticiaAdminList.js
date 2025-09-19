@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styles from './NoticiaAdminList.module.css';
 
+const API_BASE_URL = 'https://vercel-bakend-yatusabe-web.vercel.app';
+
+
 function NoticiaAdminList() {
   const [noticias, setNoticias] = useState([]);
   const [loading, setLoading] = useState(true);

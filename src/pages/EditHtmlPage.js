@@ -3,6 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css'; // Usamos estilos globales
 
+const API_BASE_URL = 'https://vercel-bakend-yatusabe-web.vercel.app';
+
+
+
 function EditHtmlPage() {
   const { slug } = useParams();
   const navigate = useNavigate();

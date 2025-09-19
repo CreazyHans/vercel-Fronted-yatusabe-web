@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from './NoticiaPage.module.css'; // Importamos los estilos modulares
 
+const API_BASE_URL = 'https://vercel-bakend-yatusabe-web.vercel.app';
+
 function NoticiaPage() {
   const { slug } = useParams();
   const [noticia, setNoticia] = useState(null);
