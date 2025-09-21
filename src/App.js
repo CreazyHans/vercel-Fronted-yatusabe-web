@@ -17,8 +17,8 @@ import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import PrivateRoute from './components/auth/PrivateRoute';
 import AdminPage from './pages/AdminPage';
 import EditHtmlPage from './pages/EditHtmlPage';
-import AcercaDePage from './components/AcercaDe'; // ¡Importa el nuevo componente!
-import ContactoPage from './components/Contacto'; // ¡Importa el nuevo componente!
+import AcercaDePage from './pages/AcercaDe'; // ¡Importa el nuevo componente!
+import ContactoPage from './pages/Contacto'; // ¡Importa el nuevo componente!
 
 function App() {
   return (
