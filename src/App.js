@@ -17,6 +17,8 @@ import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import PrivateRoute from './components/auth/PrivateRoute';
 import AdminPage from './pages/AdminPage';
 import EditHtmlPage from './pages/EditHtmlPage';
+import AcercaDePage from './components/AcercaDe'; // ¡Importa el nuevo componente!
+import ContactoPage from './components/Contacto'; // ¡Importa el nuevo componente!
 
 function App() {
   return (
@@ -31,7 +33,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/politica-de-privacidad" element={<PrivacyPolicyPage />} />
           <Route path="/terminos-y-condiciones" element={<TermsAndConditionsPage />} />
-
+          <Route path="/acerca-de" element={<AcercaDePage />} /> {/* ¡Nueva Ruta! */}
+          <Route path="/contacto" element={<ContactoPage />} />     {/* ¡Nueva Ruta! */}
           {/* --- RUTAS PRIVADAS --- */}
           <Route element={<PrivateRoute />}>
             <Route path="/admin" element={<AdminPage />} />

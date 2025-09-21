@@ -1,24 +1,23 @@
-// en frontend/src/components/Footer.js
-    import React from 'react';
-    import { Link } from 'react-router-dom';
-    
-    // 1. IMPORTAMOS LOS ESTILOS COMO UN MÓDULO
-    import styles from './Footer.module.css'; 
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-    function Footer() {
-      const currentYear = new Date().getFullYear();
-      return (
-        // 2. USAMOS LA NUEVA SINTAXIS PARA LAS CLASES
-        <footer className={styles.footer}>
-          <div className={styles.footerContainer}>
-            <p>&copy; {currentYear} Ya Tu Sabe TV RD. Todos los derechos reservados.</p>
-            <div className={styles.footerLinks}>
-              <Link to="/politica-de-privacidad">Política de Privacidad</Link>
-              <Link to="/terminos-y-condiciones">Términos y Condiciones</Link>
-            </div>
-          </div>
-        </footer>
-      );
-    }
+import styles from './Footer.module.css'; 
 
-    export default Footer;
+function Footer() {
+  const currentYear = new Date().getFullYear();
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.footerContainer}>
+        <p>&copy; {currentYear} Ya Tu Sabe TV RD. Todos los derechos reservados.</p>
+        <div className={styles.footerLinks}>
+          <Link to="/acerca-de">Acerca de Nosotros</Link> {/* <-- Nuevo enlace */}
+          <Link to="/contacto">Contacto</Link>           {/* <-- Nuevo enlace */}
+          <Link to="/politica-de-privacidad">Política de Privacidad</Link>
+          <Link to="/terminos-y-condiciones">Términos y Condiciones</Link>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default Footer;
