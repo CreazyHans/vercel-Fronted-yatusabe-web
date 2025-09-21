@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './LegalPages.module.css';
+import styles from './PrivacyPolicyPage.module.css';
 
 function ContactoPage() {
   const [formData, setFormData] = useState({

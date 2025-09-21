@@ -60,3 +60,27 @@
     padding-top: 20px;
     border-top: 1px solid #e2e8f0;
 }
+
+/* ... (tus estilos existentes) ... */
+
+.formStatus {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Estilos para éxito */
+.formStatus[style*="success"] { /* Puedes usar un data-attribute o className específico */
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Estilos para error */
+.formStatus[style*="error"] { /* Puedes usar un data-attribute o className específico */
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
