@@ -1,80 +1,81 @@
- /* en frontend/src/components/ArticleCard.module.css */
-    .articleCard {
-      background-color: #ffffff;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #e2e8f0;
-      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-      
-      /* --- LA MAGIA EMPIEZA AQUÍ --- */
-      display: flex; /* 1. Convertimos la tarjeta en un contenedor flex */
-      flex-direction: column; /* 2. Apilamos los elementos (imagen, contenido) verticalmente */
-      height: 100%; /* 3. Le decimos a la tarjeta que ocupe el 100% de la altura que la grilla le asigne */
-    }
+/* frontend/src/components/ArticleCard.module.css */
 
-    .articleImageContainer {
-      width: 100%;
-      height: 200px;
-      flex-shrink: 0; /* Evita que la imagen se encoja */
-    }
+.articleCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* CLAVE: Ocupa el 100% de la altura disponible de la celda de la grilla */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+}
 
-    .articleImage {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.articleCard:hover {
+  transform: translateY(-5px); /* Pequeño efecto al pasar el mouse */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
-    .articleContent {
-      padding: 16px;
-      display: flex; /* Convertimos el contenedor del contenido en flex también */
-      flex-direction: column;
-      
-      /* --- ESTA ES LA PROPIEDAD CLAVE --- */
-      flex-grow: 1; /* 4. Le permitimos a este contenedor "crecer" y ocupar todo el espacio vertical sobrante */
-    }
+.articleImageContainer {
+  width: 100%;
+  height: 200px; /* Altura fija para la imagen */
+  flex-shrink: 0;
+}
 
-    .articleCategory {
-      background-color: #f7b731;
-      color: #1a202c;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
-      align-self: flex-start;
-    }
+.articleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .articleTitle {
-      color: #1a202c;
-      font-size: 18px;
-      margin-top: 12px;
-      margin-bottom: 8px;
-      line-height: 1.4;
-      
-      /* --- OTRA MEJORA --- */
-      /* El título también necesita crecer para empujar el contenido hacia abajo si es necesario */
-      flex-grow: 1; 
-    }
+.articleContent {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* CLAVE: Permite que el contenido ocupe el espacio restante */
+}
 
-    /* ... tus estilos existentes de ArticleCard.module.css ... */
+.articleCategory {
+  background-color: #f7b731;
+  color: #1a202c;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  align-self: flex-start; /* Para que el span no ocupe todo el ancho */
+  margin-bottom: 8px; /* Espacio debajo de la categoría */
+}
+
+.articleTitle {
+  color: #1a202c;
+  font-size: 18px;
+  margin-top: 0; /* Eliminar margen superior si no es necesario */
+  margin-bottom: 8px;
+  line-height: 1.4;
+  flex-grow: 1; /* CLAVE: Permite que el título empuje la fecha y el resumen hacia abajo */
+}
 
 .articleDate {
-  font-size: 0.85em; /* Un poco más pequeño que el texto normal */
-  color: #6c757d;    /* Un color gris para la fecha */
+  font-size: 0.85em;
+  color: #6c757d;
   margin-top: 5px;
-  margin-bottom: 10px; /* Espacio debajo de la fecha */
-  font-weight: normal; /* Para que solo el strong interno sea negrita si aplica */
+  margin-bottom: 5px; /* Ajustado */
+  font-weight: normal;
 }
 
 .articleSummary {
-  font-size: 0.95em; /* Un tamaño ligeramente más grande para el resumen */
-  color: #495057;     /* Color de texto para el resumen */
-  line-height: 1.5;   /* Interlineado para mejor legibilidad */
-  margin-top: 10px;
+  font-size: 0.95em;
+  color: #495057;
+  line-height: 1.5;
+  margin-top: 5px; /* Ajustado */
+  /* max-height: 4.5em; */ /* Opcional: para limitar la altura del resumen a 3 líneas */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
 }
 
-/* Si quieres que el strong del título sea más destacado */
 .articleTitle strong {
-  color: #1a202c; /* Color más oscuro para el título */
-  font-size: 1.1em; /* Ligeramente más grande */
+  color: #1a202c;
+  font-size: 1.1em;
 }

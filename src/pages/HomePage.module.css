@@ -1,3 +1,5 @@
+/* frontend/src/pages/HomePage.module.css */
+
 .pageTitle {
   font-size: 2em;
   font-weight: 900;
@@ -8,63 +10,67 @@
   border-bottom: 3px solid #f7b731;
   padding-bottom: 10px;
 }
-.noticiasContainer {
+
+.noticiasContainer { /* ÚNICA DEFINICIÓN DEL CONTENEDOR DE LA GRILLA */
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  grid-auto-rows: 1fr; 
+  gap: 20px; /* Espacio entre las tarjetas */
+  /* Usamos auto-fit y minmax para una grilla responsiva por defecto */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado minmax para mejor inicio */
+  padding: 0 15px; /* Padding a los lados de la grilla */
+  max-width: 1200px; /* Ancho máximo para centrar */
+  margin: 0 auto; /* Centrar el contenedor de noticias */
+  margin-bottom: 40px; /* Margen inferior para separarlo de lo de abajo */
 }
+
 .articleLink {
   text-decoration: none;
   color: inherit;
-  display: flex;
+  display: flex; /* Importante para que ArticleCard con height:100% funcione bien */
 }
+
+/* Sección SEO Block (revisar márgenes) */
+.seoBlock {
+  margin-top: 40px; /* Margen superior para separarlo del HeroArticle */
+  margin-bottom: 40px; /* Margen inferior para separarlo de "Más Noticias" o siguiente sección */
+  padding: 20px;
+  background-color: #f7fafc;
+  border-left: 5px solid #f7b731;
+  border-radius: 0 8px 8px 0;
+  max-width: 1200px; /* Asegurarse de que esté alineado */
+  margin-left: auto; /* Centrarlo */
+  margin-right: auto; /* Centrarlo */
+}
+
+.seoBlock h2 {
+  font-size: 1.5em;
+  color: #1a202c;
+  margin-top: 0;
+}
+
+.seoBlock p {
+  font-size: 1em;
+  line-height: 1.8;
+  color: #4a5568;
+}
+
+/* Media Queries para responsividad del noticiasContainer */
 @media (max-width: 992px) {
   .noticiasContainer {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablets */
   }
 }
+
 @media (max-width: 576px) {
   .noticiasContainer {
-    grid-template-columns: 1fr;
-  }
-
-.seoBlock {
-      margin: 40px 0; /* Espacio vertical para separar las secciones */
-      padding: 20px;
-      background-color: #f7fafc; /* Un fondo gris muy sutil para diferenciarlo */
-      border-left: 5px solid #f7b731; /* Un borde de acento amarillo */
-      border-radius: 0 8px 8px 0;
-    }
-
-    .seoBlock h2 {
-      font-size: 1.5em;
-      color: #1a202c;
-      margin-top: 0;
-    }
-
-    .seoBlock p {
-      font-size: 1em;
-      line-height: 1.8;
-      color: #4a5568;
-    }
-
-
-    /* ... tus estilos existentes para HomePage.module.css ... */
-
-.noticiasContainer {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 0 15px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .noticiasContainer {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Una columna en móviles */
+    padding: 0 10px; /* Menos padding en móvil */
   }
 }
 
+/* Puedes añadir un estilo para el HeroArticle si es un componente separado
+   y necesitas controlar su margen inferior. Por ejemplo: */
+/*
+.heroArticleWrapper {
+  margin-bottom: 40px;
 }
+*/
