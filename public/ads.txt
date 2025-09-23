@@ -1566,3 +1566,4 @@ triplelift.com,8183,RESELLER,6c33edb13117fd86
 appnexus.com,12190,RESELLER,f5ab79cb980f11d1
 onetag.com,806eabb849d0326,RESELLER
 video.unrulymedia.com,731539260,RESELLER
+google.com, pub-3595444164524265, DIRECT, f08c47fec0942fa0
