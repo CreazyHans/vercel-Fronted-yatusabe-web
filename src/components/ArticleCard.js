@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './ArticleCard.module.css';
 
 function ArticleCard({ noticia }) {
+  // Función para formatear la fecha
   const formatDate = (dateString) => {
     if (!dateString) return '';
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -14,22 +15,17 @@ function ArticleCard({ noticia }) {
         <img src={noticia.imagenUrl} alt={noticia.titulo} className={styles.articleImage} />
       </div>
       <div className={styles.articleContent}>
-        {/* Usamos un div para la categoría y la ponemos en strong */}
-        <div className={styles.articleCategory}><strong>{noticia.categoria}</strong></div> 
-        
+        <span className={styles.articleCategory}><strong>{noticia.categoria}</strong></span>
         <h3 className={styles.articleTitle}><strong>{noticia.titulo}</strong></h3>
-        
-        {noticia.createdAt && (
+        {noticia.createdAt && ( // Solo muestra la fecha si existe
           <p className={styles.articleDate}>
             <strong>{formatDate(noticia.createdAt)}</strong>
           </p>
         )}
-        
-        {/* CLAVE: Usamos dangerouslySetInnerHTML para el resumen */}
-        <div 
-          className={styles.articleSummary}
-          dangerouslySetInnerHTML={{ __html: noticia.resumen }}
-        />
+        {/*
+          ¡HE ELIMINADO COMPLETAMENTE EL CÓDIGO QUE MOSTRABA EL RESUMEN!
+          El div con className={styles.articleSummary} y dangerouslySetInnerHTML ya no está aquí.
+        */}
       </div>
     </article>
   );
