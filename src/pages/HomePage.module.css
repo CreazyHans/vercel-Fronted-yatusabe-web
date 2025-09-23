@@ -49,4 +49,22 @@
       color: #4a5568;
     }
 
+
+    /* ... tus estilos existentes para HomePage.module.css ... */
+
+.noticiasContainer {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .noticiasContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
 }

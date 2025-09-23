@@ -66,3 +66,48 @@
     font-size: 1em;
   }
 }
+
+/* ... tus estilos existentes para NoticiaPage.module.css ... */
+
+.noticiaDetalleMeta {
+  font-size: 0.9em;
+  color: #6c757d;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.noticiaDetalleMeta strong {
+  color: #343a40; /* Color más oscuro para resaltar la fecha y categoría */
+}
+
+
+/* Estilos para la sección de noticias relacionadas */
+.relatedNoticiasSection {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.relatedNoticiasTitle {
+  font-size: 1.8em;
+  color: #1a202c;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* El contenedor de noticias para las relacionadas, similar al de HomePage */
+.noticiasContainer {
+  display: grid;
+  gap: 20px; /* Espacio entre las tarjetas */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  padding: 0 15px; /* Padding a los lados */
+  max-width: 1200px; /* Ancho máximo */
+  margin: 0 auto; /* Centrar */
+}
+
+/* Puedes añadir media queries para pantallas más pequeñas si lo necesitas */
+@media (max-width: 768px) {
+  .noticiasContainer {
+    grid-template-columns: 1fr; /* Una columna en móvil */
+  }
+}

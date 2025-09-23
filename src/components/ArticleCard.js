@@ -15,16 +15,18 @@ function ArticleCard({ noticia }) {
         <img src={noticia.imagenUrl} alt={noticia.titulo} className={styles.articleImage} />
       </div>
       <div className={styles.articleContent}>
-        <span className={styles.articleCategory}>{noticia.categoria}</span>
+        <span className={styles.articleCategory}><strong>{noticia.categoria}</strong></span> {/* Categoría en negrita */}
         <h3 className={styles.articleTitle}><strong>{noticia.titulo}</strong></h3> {/* Título en negrita */}
-        {noticia.createdAt && ( // Solo muestra la fecha si existe en el objeto noticia
+        {noticia.createdAt && ( // Solo muestra la fecha si existe
           <p className={styles.articleDate}>
             <strong>{formatDate(noticia.createdAt)}</strong> {/* Fecha en negrita */}
           </p>
         )}
-        <p className={styles.articleSummary}>
-          <strong>{noticia.resumen}</strong> {/* Resumen en negrita */}
-        </p>
+        {/* CORRECCIÓN CLAVE: Usar dangerouslySetInnerHTML para el resumen */}
+        <div 
+          className={styles.articleSummary}
+          dangerouslySetInnerHTML={{ __html: noticia.resumen }}
+        />
       </div>
     </article>
   );
