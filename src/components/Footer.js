@@ -14,6 +14,7 @@ function Footer() {
           <Link to="/contacto">Contacto</Link>           {/* <-- Nuevo enlace */}
           <Link to="/politica-de-privacidad">Política de Privacidad</Link>
           <Link to="/terminos-y-condiciones">Términos y Condiciones</Link>
+          <Link to="/politica-de-cookies">Política de Cookies</Link>
         </div>
       </div>
     </footer>

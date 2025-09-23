@@ -15,6 +15,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import AcercaDePage from './pages/AcercaDe';
 import ContactoPage from './pages/Contacto';
+import CookiePolicyPage from './pages/CookiePolicyPage';
 
 // Rutas Privadas y Componente de Protección
 import PrivateRoute from './components/auth/PrivateRoute';
@@ -43,6 +44,7 @@ function App() {
             <Route path="/terminos-y-condiciones" element={<TermsAndConditionsPage />} />
             <Route path="/acerca-de" element={<AcercaDePage />} />
             <Route path="/contacto" element={<ContactoPage />} />
+            <Route path="/politica-de-cookies" element={<CookiePolicyPage />} /> {/* <-- ¡Nueva Ruta! */}
             
             {/* --- RUTAS PRIVADAS --- */}
             <Route element={<PrivateRoute />}>
