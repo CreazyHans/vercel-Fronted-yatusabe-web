@@ -1,0 +1,183 @@
+/* frontend/src/pages/LegalPages.module.css */
+
+/* Estilos generales para las páginas legales e informativas */
+.legalPage {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+  font-family: 'Arial', sans-serif; /* Puedes ajustar la fuente */
+  color: #333;
+}
+
+.legalPage h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #f7b731;
+  padding-bottom: 15px;
+  color: #1a202c;
+  font-size: 2.5em;
+  font-weight: 800;
+}
+
+.legalPage h2 {
+  color: #1a202c;
+  font-size: 1.8em;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.legalPage h3 {
+  color: #1a202c;
+  font-size: 1.4em;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.legalPage p,
+.legalPage li {
+  margin-bottom: 1em;
+  color: #4a5568;
+}
+
+.legalPage ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 0;
+    margin-bottom: 1em;
+}
+
+.legalPage ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+    padding-left: 0;
+    margin-bottom: 1em;
+}
+
+.legalPage li {
+    margin-bottom: 0.5em;
+}
+
+.legalPage a {
+  color: #0056b3;
+  text-decoration: underline; /* Puedes decidir si quieres subrayado en los links internos */
+}
+
+.legalPage a:hover {
+  color: #f7b731;
+  text-decoration: none;
+}
+
+/* Estilos para el formulario de contacto */
+.contactForm {
+  max-width: 600px;
+  margin: 30px auto; /* Ajustado para más espacio */
+  padding: 25px;
+  background-color: #f9f9f9; /* Fondo ligeramente diferente */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eee;
+}
+
+.formGroup {
+  margin-bottom: 20px; /* Más espacio entre campos */
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px; /* Más espacio debajo del label */
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup textarea {
+  width: 100%;
+  padding: 12px; /* Más padding */
+  border: 1px solid #ccc;
+  border-radius: 6px; /* Bordes un poco más redondeados */
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #555;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formGroup input[type="text"]:focus,
+.formGroup input[type="email"]:focus,
+.formGroup textarea:focus {
+  border-color: #f7b731; /* Borde amarillo al enfocar */
+  box-shadow: 0 0 0 3px rgba(247, 183, 49, 0.2); /* Sombra suave */
+  outline: none; /* Quitar el outline por defecto del navegador */
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px; /* Altura mínima para el textarea */
+}
+
+.submitButton {
+  background-color: #f7b731;
+  color: white;
+  padding: 14px 25px; /* Más padding para el botón */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em; /* Texto un poco más grande */
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.submitButton:hover {
+  background-color: #e0a32e;
+  transform: translateY(-2px); /* Pequeño efecto al pasar el mouse */
+}
+
+/* Mensajes de estado del formulario */
+.formStatus {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+/* Estilos para éxito */
+.formStatus[style*="success"] { /* Nota: esto depende de cómo apliques los estilos en JS */
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+/* Estilos para error */
+.formStatus[style*="error"] { /* Nota: esto depende de cómo apliques los estilos en JS */
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+/* Media query para hacer las páginas legales responsivas */
+@media (max-width: 768px) {
+  .legalPage, .contactForm {
+    margin: 20px 15px; /* Reducir márgenes en móviles */
+    padding: 20px;
+  }
+  .legalPage h1 {
+    font-size: 2em;
+    padding-bottom: 10px;
+  }
+  .legalPage h2 {
+    font-size: 1.5em;
+  }
+  .legalPage h3 {
+    font-size: 1.2em;
+  }
+}
