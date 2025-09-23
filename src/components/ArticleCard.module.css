@@ -10,7 +10,24 @@
   flex-direction: column;
   height: 100%; /* CLAVE: Ocupa el 100% de la altura disponible de la celda de la grilla */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+
+  /* --- ¡AQUÍ ESTÁ LA CLAVE PARA QUITAR EL SUBRAYADO! --- */
+  /* Cualquier enlace dentro de la tarjeta (incluyendo el ArticleLink que envuelve y enlaces en el resumen) */
+  /* Si tu procesador CSS (como el de Create React App) soporta anidamiento, puedes usar: */
+  & a {
+    text-decoration: none;
+    color: inherit; /* Mantiene el color del texto heredado, no el azul por defecto */
+  }
 }
+
+/* Si tu procesador CSS NO soporta anidamiento (es CSS plano), usa esta sintaxis en su lugar: */
+/*
+.articleCard a {
+  text-decoration: none;
+  color: inherit;
+}
+*/
+
 
 .articleCard:hover {
   transform: translateY(-5px); /* Pequeño efecto al pasar el mouse */
@@ -73,9 +90,18 @@
   /* max-height: 4.5em; */ /* Opcional: para limitar la altura del resumen a 3 líneas */
   /* overflow: hidden; */
   /* text-overflow: ellipsis; */
-}
 
-.articleTitle strong {
-  color: #1a202c;
-  font-size: 1.1em;
+  /* Asegurarse de que los enlaces dentro del resumen no se subrayen y hereden el color */
+  /* Si tu procesador CSS soporta anidamiento, puedes usar: */
+  & a {
+      text-decoration: none;
+      color: inherit;
+  }
 }
+/* Si tu configuración CSS NO soporta anidamiento, usa esta sintaxis para .articleSummary a { ... } */
+/*
+.articleSummary a {
+  text-decoration: none;
+  color: inherit;
+}
+*/
