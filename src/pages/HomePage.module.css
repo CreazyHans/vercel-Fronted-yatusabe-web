@@ -9,68 +9,94 @@
   margin-bottom: 30px;
   border-bottom: 3px solid #f7b731;
   padding-bottom: 10px;
+  max-width: 1200px; /* Asegurar que el título también tenga un ancho máximo */
+  margin-left: auto; /* Centrar título */
+  margin-right: auto; /* Centrar título */
 }
 
-.noticiasContainer { /* ÚNICA DEFINICIÓN DEL CONTENEDOR DE LA GRILLA */
+.noticiasContainer {
   display: grid;
-  gap: 20px; /* Espacio entre las tarjetas */
-  /* Usamos auto-fit y minmax para una grilla responsiva por defecto */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado minmax para mejor inicio */
-  padding: 0 15px; /* Padding a los lados de la grilla */
-  max-width: 1200px; /* Ancho máximo para centrar */
-  margin: 0 auto; /* Centrar el contenedor de noticias */
-  margin-bottom: 40px; /* Margen inferior para separarlo de lo de abajo */
+  gap: 24px; /* Espacio entre tarjetas, ajustado a 24px para más separación */
+  /* Reajustamos la grilla para PC: 3 columnas de tamaño similar, con un mínimo */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min ancho 300px, ocupa espacio */
+  padding: 0 30px; /* Mayor padding lateral en PC para que no se pegue a los bordes */
+  max-width: 1300px; /* Aumentado el ancho máximo del contenedor para más espacio */
+  margin: 40px auto; /* Centrar y darle margen superior e inferior */
 }
 
 .articleLink {
-  text-decoration: none;
+  text-decoration: none; /* Quita el subrayado */
   color: inherit;
-  display: flex; /* Importante para que ArticleCard con height:100% funcione bien */
+  display: flex; /* Importante para que ArticleCard con height:100% funcione */
 }
 
-/* Sección SEO Block (revisar márgenes) */
+/* Sección SEO Block (ajustando márgenes para PC) */
 .seoBlock {
-  margin-top: 40px; /* Margen superior para separarlo del HeroArticle */
-  margin-bottom: 40px; /* Margen inferior para separarlo de "Más Noticias" o siguiente sección */
-  padding: 20px;
+  margin-top: 40px; 
+  margin-bottom: 40px;
+  padding: 30px; /* Aumentado padding para más aire */
   background-color: #f7fafc;
   border-left: 5px solid #f7b731;
   border-radius: 0 8px 8px 0;
-  max-width: 1200px; /* Asegurarse de que esté alineado */
+  max-width: 1200px; /* Ancho máximo */
   margin-left: auto; /* Centrarlo */
   margin-right: auto; /* Centrarlo */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra suave */
 }
 
 .seoBlock h2 {
-  font-size: 1.5em;
+  font-size: 1.8em; /* Ligeramente más grande */
   color: #1a202c;
   margin-top: 0;
 }
 
 .seoBlock p {
-  font-size: 1em;
+  font-size: 1.1em; /* Texto un poco más grande para mejor lectura */
   line-height: 1.8;
   color: #4a5568;
 }
 
-/* Media Queries para responsividad del noticiasContainer */
-@media (max-width: 992px) {
+/* Media Queries para responsividad */
+@media (max-width: 1200px) { /* Para pantallas entre 992px y 1200px */
   .noticiasContainer {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablets */
+    padding: 0 20px; /* Reduce un poco el padding lateral */
+  }
+  .seoBlock {
+    padding: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 992px) { /* Tablets */
   .noticiasContainer {
-    grid-template-columns: 1fr; /* Una columna en móviles */
-    padding: 0 10px; /* Menos padding en móvil */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 20px;
+    padding: 0 20px;
+  }
+  .pageTitle, .seoBlock {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
-/* Puedes añadir un estilo para el HeroArticle si es un componente separado
-   y necesitas controlar su margen inferior. Por ejemplo: */
-/*
-.heroArticleWrapper {
-  margin-bottom: 40px;
+@media (max-width: 576px) { /* Móviles */
+  .noticiasContainer {
+    grid-template-columns: 1fr; /* Una columna */
+    gap: 15px;
+    padding: 0 15px;
+  }
+  .pageTitle, .seoBlock {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .pageTitle {
+    font-size: 1.5em;
+  }
+  .seoBlock h2 {
+    font-size: 1.3em;
+  }
+  .seoBlock p {
+    font-size: 0.95em;
+  }
 }
-*/
