@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from './NoticiaPage.module.css';
-import API_BASE_URL from '../config'; // Importa la URL base
+import API_BASE_URL from '../config'; // <<< ¡Esta línea es la que faltaba/estaba mal!
 
 function NoticiaPage() {
   const { slug } = useParams();
@@ -23,6 +23,7 @@ function NoticiaPage() {
         setLoading(false);
       }
     };
+
     fetchNoticia();
   }, [slug]);
 
@@ -36,21 +37,24 @@ function NoticiaPage() {
   if (loading) {
     return <div className="App-container"><h1 className={styles.pageTitle}>Cargando...</h1></div>;
   }
+
   if (error) {
     return <div className="App-container"><h1 className={styles.pageTitle}>{error}</h1></div>;
   }
+
   if (!noticia) {
     return <div className="App-container"><h1 className={styles.pageTitle}>Noticia no encontrada.</h1></div>;
   }
 
+  // --- Vista Principal ---
   return (
     <div className={`App-container ${styles.noticiaDetalle}`}>
       <Link to="/" className={styles.backLink}>← Volver a Inicio</Link>
       
-      <h1 className={styles.noticiaDetalleTitulo}>{noticia.titulo}</h1>
+      <h1 className={styles.noticiaDetalleTitulo}><strong>{noticia.titulo}</strong></h1> {/* Título en negrita */}
       <p className={styles.noticiaDetalleCategoria}>
         {noticia.categoria}
-        {noticia.createdAt && ( // Muestra la fecha solo si existe
+        {noticia.createdAt && (
           <> - <strong>{formatDate(noticia.createdAt)}</strong></>
         )}
       </p>

@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import ArticleCard from '../components/ArticleCard';
 import styles from './CategoryPage.module.css';
+import API_BASE_URL from '../config'; // <<< ¡Esta línea es la que faltaba/estaba mal!
+
 
 function CategoryPage() {
   const { categoryName } = useParams();
@@ -13,11 +15,11 @@ function CategoryPage() {
     const fetchNoticiasPorCategoria = async () => {
       setLoading(true);
       try {
-        // const response = await axios.get(`/api/noticias/categoria/${categoryName}`); // ANTES
-const response = await axios.get(`${API_BASE_URL}/api/noticias/categoria/${categoryName}`); // DESPUÉS
+        const response = await axios.get(`${API_BASE_URL}/api/noticias/categoria/${categoryName}`);
         setNoticias(response.data);
       } catch (error) {
         console.error(`Error obteniendo noticias para la categoría ${categoryName}:`, error);
+        setNoticias([]); // Asegúrate de limpiar las noticias en caso de error
       } finally {
         setLoading(false);
       }
@@ -35,7 +37,7 @@ const response = await axios.get(`${API_BASE_URL}/api/noticias/categoria/${categ
           <p>Cargando noticias...</p>
         ) : noticias.length > 0 ? (
           noticias.map((noticia) => (
-            <Link to={`/noticia/${noticia.slug}`} key={noticia.slug} className={styles.articleLink}>
+            <Link to={`/noticia/${noticia.slug}`} key={noticia._id} className={styles.articleLink}>
               <ArticleCard noticia={noticia} />
             </Link>
           ))

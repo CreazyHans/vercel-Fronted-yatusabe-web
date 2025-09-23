@@ -4,33 +4,28 @@ import axios from 'axios';
 import ArticleCard from '../components/ArticleCard';
 import HeroArticle from '../components/HeroArticle';
 import styles from './HomePage.module.css';
+import API_BASE_URL from '../config'; // <<< ¡Esta línea es la que faltaba/estaba mal!
+
 
 function HomePage() {
   const [noticias, setNoticias] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // frontend/src/pages/HomePage.js
-
-// ... (importaciones y API_BASE_URL definida) ...
-
-useEffect(() => {
-  const fetchNoticias = async () => {
-    setLoading(true);
-    try {
-      // <<< ¡CORRECCIÓN CLAVE AQUÍ!
-      const response = await axios.get(`${API_BASE_URL}/api/noticias`);
-      setNoticias(Array.isArray(response.data) ? response.data : []);
-    } catch (error) {
-      console.error("Hubo un error al obtener las noticias:", error);
-      setNoticias([]);
-    } finally {
-      setLoading(false);
-    }
-  };
-  fetchNoticias();
-}, []);
-
-// ... (resto del código) ...
+  useEffect(() => {
+    const fetchNoticias = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/noticias`);
+        setNoticias(Array.isArray(response.data) ? response.data : []);
+      } catch (error) {
+        console.error("Hubo un error al obtener las noticias:", error);
+        setNoticias([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchNoticias();
+  }, []);
 
   const featuredArticle = noticias[0];
   const otherArticles = noticias.slice(1);
@@ -45,7 +40,7 @@ useEffect(() => {
 
   return (
     <main className="App-container">
-      <HeroArticle noticia={featuredArticle} />
+      {featuredArticle && <HeroArticle noticia={featuredArticle} />} {/* Añadido verificación */}
       <section className={styles.seoBlock}>
         <h2>Tu Portal de Noticias en República Dominicana</h2>
         <p>En <strong>Ya Tu Sabe TV RD</strong>, te traemos las últimas noticias de la <strong>República Dominicana</strong> con el lenguaje del pueblo...</p>
