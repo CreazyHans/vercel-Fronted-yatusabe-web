@@ -55,3 +55,26 @@
       /* El título también necesita crecer para empujar el contenido hacia abajo si es necesario */
       flex-grow: 1; 
     }
+
+    /* ... tus estilos existentes de ArticleCard.module.css ... */
+
+.articleDate {
+  font-size: 0.85em; /* Un poco más pequeño que el texto normal */
+  color: #6c757d;    /* Un color gris para la fecha */
+  margin-top: 5px;
+  margin-bottom: 10px; /* Espacio debajo de la fecha */
+  font-weight: normal; /* Para que solo el strong interno sea negrita si aplica */
+}
+
+.articleSummary {
+  font-size: 0.95em; /* Un tamaño ligeramente más grande para el resumen */
+  color: #495057;     /* Color de texto para el resumen */
+  line-height: 1.5;   /* Interlineado para mejor legibilidad */
+  margin-top: 10px;
+}
+
+/* Si quieres que el strong del título sea más destacado */
+.articleTitle strong {
+  color: #1a202c; /* Color más oscuro para el título */
+  font-size: 1.1em; /* Ligeramente más grande */
+}

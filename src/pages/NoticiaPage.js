@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import styles from './NoticiaPage.module.css'; // Importamos los estilos modulares
-
-const API_BASE_URL = 'https://vercel-bakend-yatusabe-web.vercel.app';
+import styles from './NoticiaPage.module.css';
+import API_BASE_URL from '../config'; // Importa la URL base
 
 function NoticiaPage() {
   const { slug } = useParams();
@@ -12,45 +11,49 @@ function NoticiaPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Definimos la función para buscar la noticia
     const fetchNoticia = async () => {
-      setLoading(true); // Ponemos en modo carga
+      setLoading(true);
       try {
-        // const response = await axios.get(`/api/noticias/${slug}`); // ANTES
-const response = await axios.get(`${API_BASE_URL}/api/noticias/${slug}`); // DESPUÉS
-        setNoticia(response.data); // Guardamos la noticia encontrada
+        const response = await axios.get(`${API_BASE_URL}/api/noticias/${slug}`);
+        setNoticia(response.data);
       } catch (err) {
         setError('No se pudo cargar la noticia. Inténtalo de nuevo más tarde.');
         console.error("Error al obtener la noticia:", err);
       } finally {
-        setLoading(false); // La carga ha terminado
+        setLoading(false);
       }
     };
-
-    // Llamamos a la función
     fetchNoticia();
-  }, [slug]); // Se ejecuta cada vez que el 'slug' en la URL cambie
+  }, [slug]);
 
-  // --- Vistas condicionales ---
+  // Función para formatear la fecha
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('es-ES', options);
+  };
+
   if (loading) {
     return <div className="App-container"><h1 className={styles.pageTitle}>Cargando...</h1></div>;
   }
-
   if (error) {
     return <div className="App-container"><h1 className={styles.pageTitle}>{error}</h1></div>;
   }
-
   if (!noticia) {
     return <div className="App-container"><h1 className={styles.pageTitle}>Noticia no encontrada.</h1></div>;
   }
 
-  // --- Vista Principal ---
   return (
     <div className={`App-container ${styles.noticiaDetalle}`}>
       <Link to="/" className={styles.backLink}>← Volver a Inicio</Link>
       
       <h1 className={styles.noticiaDetalleTitulo}>{noticia.titulo}</h1>
-      <p className={styles.noticiaDetalleCategoria}>{noticia.categoria}</p>
+      <p className={styles.noticiaDetalleCategoria}>
+        {noticia.categoria}
+        {noticia.createdAt && ( // Muestra la fecha solo si existe
+          <> - <strong>{formatDate(noticia.createdAt)}</strong></>
+        )}
+      </p>
       
       <img src={noticia.imagenUrl} alt={noticia.titulo} className={styles.noticiaDetalleImagen} />
       

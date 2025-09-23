@@ -5,9 +5,6 @@ import ArticleCard from '../components/ArticleCard';
 import HeroArticle from '../components/HeroArticle';
 import styles from './HomePage.module.css';
 
-const API_BASE_URL = 'https://vercel-bakend-yatusabe-web.vercel.app';
-
-
 function HomePage() {
   const [noticias, setNoticias] = useState([]);
   const [loading, setLoading] = useState(true);

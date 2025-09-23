@@ -4,9 +4,6 @@ import axios from 'axios';
 import ArticleCard from '../components/ArticleCard';
 import styles from './CategoryPage.module.css';
 
-const API_BASE_URL = 'https://vercel-bakend-yatusabe-web.vercel.app';
-
-
 function CategoryPage() {
   const { categoryName } = useParams();
   const [noticias, setNoticias] = useState([]);
